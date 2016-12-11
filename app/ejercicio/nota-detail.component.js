@@ -8,18 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var NotaDetailComponent = (function () {
     function NotaDetailComponent() {
     }
+    NotaDetailComponent = __decorate([
+        core_1.Component({
+            selector: 'nota-detail',
+            template: "\n    <h1> {{nota.titulo}} </h1>\n    <p> {{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n    <p> {{nota.conetnido}}</p>\n    <button [routerLink]=\"'./notaEdit'\"></button>\n  "
+        }), 
+        __metadata('design:paramtypes', [])
+    ], NotaDetailComponent);
     return NotaDetailComponent;
 }());
-NotaDetailComponent = __decorate([
-    core_1.Component({
-        selector: 'nota-detail',
-        template: "\n    <h1> {{nota.titulo}} </h1>\n    <p> {{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n    <p> {{nota.conetnido}}</p>\n    <button [routerLink]=\"'./notaEdit'\"></button>\n  "
-    }),
-    __metadata("design:paramtypes", [])
-], NotaDetailComponent);
 exports.NotaDetailComponent = NotaDetailComponent;
 //# sourceMappingURL=nota-detail.component.js.map

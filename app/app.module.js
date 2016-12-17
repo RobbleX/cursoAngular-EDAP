@@ -12,10 +12,10 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
+var approuter_1 = require('./ejercicio/approuter');
 var nota_list_component_1 = require('./ejercicio/nota-list.component');
 var nota_edit_component_1 = require('./ejercicio/nota-edit.component');
 var nota_detail_component_1 = require('./ejercicio/nota-detail.component');
-var approuter_1 = require('./ejercicio/approuter');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,7 +23,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, approuter_1.AppRouterModule],
             declarations: [app_component_1.AppComponent, nota_list_component_1.NotaListComponent, nota_detail_component_1.NotaDetailComponent, nota_edit_component_1.NotaEditComponent],
-            bootstrap: [app_component_1.AppComponent, nota_list_component_1.NotaListComponent]
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

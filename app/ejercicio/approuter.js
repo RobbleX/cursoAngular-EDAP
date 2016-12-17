@@ -16,7 +16,8 @@ var nota_detail_component_1 = require('./nota-detail.component');
 var rutas = [
     { path: 'notaDetail/:id', component: nota_detail_component_1.NotaDetailComponent },
     { path: 'notaEdit/:id', component: nota_edit_component_1.NotaEditComponent },
-    { path: '', component: nota_list_component_1.NotaListComponent }
+    { path: '', component: nota_list_component_1.NotaListComponent },
+    { path: '*', component: nota_list_component_1.NotaListComponent }
 ];
 var AppRouterModule = (function () {
     function AppRouterModule() {

@@ -9,14 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var nota_model_1 = require('./nota.model');
+var nota_list_service_1 = require('./nota-list.service');
+var router_1 = require('@angular/router');
 var NotaListComponent = (function () {
-    function NotaListComponent() {
+    function NotaListComponent(notaListService, _router) {
+        this._router = _router;
+        this.notaListService = notaListService;
     }
     NotaListComponent.prototype.ngOnInit = function () {
-        var nota1 = new nota_model_1.Nota('Nota 1', "Pepe", new Date(2016, 1, 1, 0, 0, 0, 0), "Primera nota");
-        var nota2 = new nota_model_1.Nota("Nota 2", "Juan", new Date(2016, 1, 2, 0, 0, 0, 0), "Segunda nota");
-        this.notas = [nota1, nota2];
+        this.notas = this.notaListService.getNotas();
     };
     // Determina si se debe mostrar una nota en función de la búsqueda
     NotaListComponent.prototype.mostrarNota = function (nota, busqueda) {
@@ -41,9 +42,10 @@ var NotaListComponent = (function () {
     NotaListComponent = __decorate([
         core_1.Component({
             selector: 'nota-list',
-            template: "\n    <span  [ngStyle]=\"{'font-size': '1.2em'}\" >Buscar:</span>\n    <input type=\"text\" [(ngModel)]=\"busqueda\" />\n    <h1>NOTAS</h1>\n    <ul>\n     <li *ngFor=\"let nota of buscar(notas,busqueda)\">\n      <nav>\n        <h2><a [routerLink]=\"['./notaDetail']\">{{nota.titulo}}</a></h2>\n      </nav>\n      <p [ngStyle]=\"{'font-size': '0.8em'}\">{{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n      <p>{{nota.contenido}}</p>\n    </li>\n    </ul>\n    "
+            template: "\n    <span  [ngStyle]=\"{'font-size': '1.2em'}\" >Buscar:</span>\n    <input type=\"text\" [(ngModel)]=\"busqueda\" />\n    <h1>NOTAS</h1>\n    <ul>\n     <li *ngFor=\"let nota of buscar(notas,busqueda)\">\n      <nav>\n        <h2><a [routerLink]=\"['notaDetail',nota.id]\">{{nota.titulo}}</a></h2>\n      </nav>\n      <p [ngStyle]=\"{'font-size': '0.8em'}\">{{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n      <p>{{nota.contenido}}</p>\n    </li>\n    </ul>\n    ",
+            providers: [nota_list_service_1.NotaListService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [nota_list_service_1.NotaListService, router_1.Router])
     ], NotaListComponent);
     return NotaListComponent;
 }());

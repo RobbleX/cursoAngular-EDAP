@@ -1,0 +1,11 @@
+<article>
+	<header>
+		<h2>{{nota.titulo}}</h2>
+	</header>
+	<h3>{{nota.autor}} <span class="fecha">{{nota.fecha | date:'(dd/MMM/yyyy)'}}</span></h3>
+	<div class="contenido-nota">
+		{{nota.contenido}}
+	</div>
+	<a calss="back" [routerLink]="['../..']">Atrás</a>
+	<a class="edit" [routerLink]="['../../notaEdit',nota.id]">Editar</a>
+</article>

@@ -5,14 +5,15 @@ import { NotaEditComponent } from './nota-edit.component';
 import { NotaDetailComponent } from './nota-detail.component';
 
 const rutas: Routes = [
-  {path: 'notaDetail/:id', component: NotaDetailComponent},
-  {path: 'notaEdit/:id', component: NotaEditComponent},
-  {path: '', component: NotaListComponent}
+  { path: 'notaDetail/:id', component: NotaDetailComponent},
+  { path: 'notaEdit/:id', component: NotaEditComponent},
+  { path: '', component: NotaListComponent},
+  { path: '*' , component : NotaListComponent }
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(rutas)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(rutas) ],
+  exports: [ RouterModule]
 })
 
 export class AppRouterModule{}

@@ -9,15 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var nota_list_service_1 = require('./nota-list.service');
 var NotaDetailComponent = (function () {
-    function NotaDetailComponent() {
+    function NotaDetailComponent(_route, //Este Servicio nos permitirá acceder y operar sobre la ruta activa
+        _router, // Este Servicio nos permite navegar
+        _notaListService) {
+        this._route = _route;
+        this._router = _router;
+        this._notaListService = _notaListService;
     }
+    NotaDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.params_sub = this._route.params.subscribe(function (params) {
+            var id = parseInt(params['id']);
+            _this.loadNota(id);
+        });
+    };
+    NotaDetailComponent.prototype.loadNota = function (id) {
+        this.nota = this._notaListService.getNota(id);
+    };
     NotaDetailComponent = __decorate([
         core_1.Component({
             selector: 'nota-detail',
-            template: "\n    <h1> {{nota.titulo}} </h1>\n    <p> {{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n    <p> {{nota.conetnido}}</p>\n    <button [routerLink]=\"'./notaEdit'\"></button>\n  "
+            templateUrl: '/app/ejercicio/templates/nota-detail.component.html',
+            providers: [nota_list_service_1.NotaListService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, nota_list_service_1.NotaListService])
     ], NotaDetailComponent);
     return NotaDetailComponent;
 }());

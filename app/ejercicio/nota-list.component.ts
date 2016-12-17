@@ -10,7 +10,7 @@ import { Nota } from './nota.model';
     <ul>
      <li *ngFor="let nota of buscar(notas,busqueda)">
       <nav>
-        <h2><a [routerLink]="['./notaDetail']">{{nota.titulo}}</a></h2>
+        <h2><a [routerLink]="['./notaDetail', nota.id']">{{nota.titulo}}</a></h2>
       </nav>
       <p [ngStyle]="{'font-size': '0.8em'}">{{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>
       <p>{{nota.contenido}}</p>

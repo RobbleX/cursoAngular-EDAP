@@ -41,7 +41,7 @@ var NotaListComponent = (function () {
     NotaListComponent = __decorate([
         core_1.Component({
             selector: 'nota-list',
-            template: "\n    <span  [ngStyle]=\"{'font-size': '1.2em'}\" >Buscar:</span>\n    <input type=\"text\" [(ngModel)]=\"busqueda\" />\n    <h1>NOTAS</h1>\n    <ul>\n     <li *ngFor=\"let nota of buscar(notas,busqueda)\">\n      <nav>\n        <h2><a [routerLink]=\"['./notaDetail']\">{{nota.titulo}}</a></h2>\n      </nav>\n      <p [ngStyle]=\"{'font-size': '0.8em'}\">{{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n      <p>{{nota.contenido}}</p>\n    </li>\n    </ul>\n    "
+            template: "\n    <span  [ngStyle]=\"{'font-size': '1.2em'}\" >Buscar:</span>\n    <input type=\"text\" [(ngModel)]=\"busqueda\" />\n    <h1>NOTAS</h1>\n    <ul>\n     <li *ngFor=\"let nota of buscar(notas,busqueda)\">\n      <nav>\n        <h2><a [routerLink]=\"['./notaDetail', nota.id']\">{{nota.titulo}}</a></h2>\n      </nav>\n      <p [ngStyle]=\"{'font-size': '0.8em'}\">{{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>\n      <p>{{nota.contenido}}</p>\n    </li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], NotaListComponent);

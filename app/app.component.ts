@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { NotaListComponent } from './ejercicio/nota-list.component';
+import { Anotable }  from './ejercicio/nota.model';
 
 
 @Component({
   selector: 'hola-mundo',
-  template: `<h1>Hola Mundo!</h1><router-outlet></router-outlet>`
+  template: `<router-outlet></router-outlet>`
 })
 export class AppComponent { }

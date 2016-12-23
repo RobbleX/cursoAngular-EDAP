@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
-import { NotaListComponent }  from './ejercicio/nota-list.component';
+import { NotaListService } from './ejercicio/nota-list.service';
 
 
 const platform = platformBrowserDynamic();

@@ -1,6 +1,5 @@
 import { Component, Injectable, Input , Output, EventEmitter } from '@angular/core';
 import { Anotable } from './nota.model';
-import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 let mock_notas: Array<Anotable> =[
@@ -64,24 +63,18 @@ let mock_notas: Array<Anotable> =[
 
 @Injectable()
 export class NotaListService{
-  private url_list_notas = '/notas/'
-  private url_get_nota = '/notas';
-  private url_new_nota = '/notaDetail';
-  private url_update_nota = '/notaDetail';
 
-  constructor (private _http: Http) {}
+  constructor () {}
 
   getNotas(){
     return mock_notas.concat([]);
   }
 
   getNota(id: number){
+    console.log('Get nota ' + id)
     let filtrado = mock_notas.filter(n => n.id === id);
+    console.log(id)
+    console.log(filtrado)
     return (filtrado.length && filtrado.pop()) || null;
-  }
-
-  updateNota(nota: Anotable){
-    let headers = new Headers({'Content-Type':'application/json'});
-    return this._http.post(this.url_update_nota, nota, { headers: headers} );
   }
 }

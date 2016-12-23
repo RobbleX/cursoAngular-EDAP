@@ -9,7 +9,10 @@ import { NotaListService } from './nota-list.service';
     <h1> {{nota.titulo}} </h1>
     <p> {{nota.autor}} {{nota.fecha | date:'(dd/MMM/yyyy)'}} </p>
     <p> {{nota.conetnido}}</p>
-    <button [routerLink]="'./notaEdit'"></button>
+    <nav>
+      <h2><a [routerLink]="['notaEdit',nota.id]">Editar </a></h2>
+      <h2><a [routerLink]="['*']">Volver </a></h2>
+    </nav>
   `,
   providers:[NotaListService]
 })
